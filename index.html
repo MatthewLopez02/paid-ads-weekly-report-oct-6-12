@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paid Ads Weekly Report - Oct 6-12, 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #e8f4ff 0%, #f0f7ff 100%);
+            color: #050d30;
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        .header-emoji {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #050d30;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #5a7a8f;
+            margin-bottom: 30px;
+        }
+
+        .header-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #27fb6b 0%, #1de05a 100%);
+            padding: 25px;
+            border-radius: 15px;
+            color: #050d30;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            font-size: 32px;
+            color: #050d30;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: #050d30;
+            margin: 30px 0 20px 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+
+        .comparison-table thead {
+            background: linear-gradient(135deg, #27fb6b 0%, #1de05a 100%);
+            color: #050d30;
+        }
+
+        .comparison-table th {
+            padding: 18px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .comparison-table td {
+            padding: 18px;
+            border-bottom: 1px solid #e8f4ff;
+        }
+
+        .comparison-table tbody tr:hover {
+            background: #f0f9ff;
+        }
+
+        .insight-box {
+            background: linear-gradient(135deg, #e8f4ff 0%, #d4e8ff 100%);
+            border-left: 5px solid #27fb6b;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .insight-box h3 {
+            color: #050d30;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .insight-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .insight-list li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .insight-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #27fb6b;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #f8fcff 0%, #e8f4ff 100%);
+            border: 2px solid #27fb6b;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .stat-card-title {
+            font-size: 14px;
+            color: #5a7a8f;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .stat-card-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #050d30;
+            margin-bottom: 5px;
+        }
+
+        .stat-card-change {
+            font-size: 14px;
+            color: #5a7a8f;
+        }
+
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .platform-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fcff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #e8f4ff;
+        }
+
+        .platform-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #050d30;
+            margin-bottom: 20px;
+        }
+
+        .platform-metric {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e8f4ff;
+        }
+
+        .platform-metric:last-child {
+            border-bottom: none;
+        }
+
+        .metric-label {
+            color: #5a7a8f;
+            font-size: 14px;
+        }
+
+        .metric-value {
+            font-weight: 600;
+            color: #050d30;
+        }
+
+        .metric-change {
+            color: #27fb6b;
+            font-size: 12px;
+            margin-left: 8px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 30px 0;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            
+            .header-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid, .platform-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-emoji">📊</div>
+            <h1>Paid Ads Weekly Report</h1>
+            <p class="subtitle">October 6-12, 2025</p>
+            
+            <div class="header-stats">
+                <div class="stat-box">
+                    <div class="stat-number">5,008</div>
+                    <div class="stat-label">Total Accounts<br>Created</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">$15.93</div>
+                    <div class="stat-label">CPA Achieved<br>(Goal: $45.00)</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">$49,338</div>
+                    <div class="stat-label">Weekly Spend</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">59%</div>
+                    <div class="stat-label">Accounts from<br>Paid Ads</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weekly KPI Overview -->
+        <div class="section">
+            <h2>🎯 Weekly KPI Summary</h2>
+            
+            <div class="two-column">
+                <div>
+                    <h3>Traditional + Paid</h3>
+                    <div class="stats-grid" style="grid-template-columns: 1fr;">
+                        <div class="stat-card">
+                            <div class="stat-card-title">Accounts Created</div>
+                            <div class="stat-card-value">5,008</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-title">Installs</div>
+                            <div class="stat-card-value">7,692</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3>Paid Only</h3>
+                    <div class="stats-grid" style="grid-template-columns: 1fr;">
+                        <div class="stat-card">
+                            <div class="stat-card-title">CPA Goal</div>
+                            <div class="stat-card-value">$45.00</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-title">CPA Achieved</div>
+                            <div class="stat-card-value" style="color: #27fb6b;">$15.93</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-title">Spend</div>
+                            <div class="stat-card-value">$49,338</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h3>💡 Key Insights</h3>
+                <ul class="insight-list">
+                    <li>This week, we continued the trend of far exceeding our weekly goals</li>
+                    <li><strong>5,751 accounts (59%)</strong> can be attributed to Paid</li>
+                    <li>Paid remained <strong>well below the CPA goal</strong>, as our optimization efforts ensure efficient user acquisition</li>
+                    <li>We spent below our weekly budget for the same reason</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Executive Summary Comparison -->
+        <div class="section">
+            <h2>📈 Week-over-Week Performance</h2>
+            
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Metric</th>
+                        <th>Week Prior</th>
+                        <th>Last Week</th>
+                        <th>Change</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Spend</strong></td>
+                        <td>$200,926</td>
+                        <td>$49,338</td>
+                        <td style="color: #27fb6b;">↓ 75.5%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Installs</strong></td>
+                        <td>14,225</td>
+                        <td>3,786</td>
+                        <td style="color: #5a7a8f;">↓ 73.4%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>New Accounts</strong></td>
+                        <td>4,885</td>
+                        <td>3,097</td>
+                        <td style="color: #5a7a8f;">↓ 36.6%</td>
+                    </tr>
+                    <tr style="background: #e8f4ff;">
+                        <td><strong>CPA</strong></td>
+                        <td>$41.13</td>
+                        <td>$15.93</td>
+                        <td style="color: #27fb6b; font-weight: 700;">↓ 61.3% 🎉</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Verified Accounts</strong></td>
+                        <td>3,283</td>
+                        <td>1,199</td>
+                        <td style="color: #5a7a8f;">↓ 63.5%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Activation Rate</strong></td>
+                        <td>14.75%</td>
+                        <td>10.77%</td>
+                        <td style="color: #5a7a8f;">↓ 3.98pp</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Close Rate</strong></td>
+                        <td>5.92%</td>
+                        <td>4.36%</td>
+                        <td style="color: #5a7a8f;">↓ 1.56pp</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Platform Breakdown -->
+        <div class="section">
+            <h2>🚀 Platform Performance</h2>
+            
+            <div class="platform-grid">
+                <div class="platform-card">
+                    <div class="platform-name">Google</div>
+                    <div class="platform-metric">
+                        <span class="metric-label">Spend</span>
+                        <span class="metric-value">$41,061 <span class="metric-change">↓72.39%</span></span>
+                    </div>
+                    <div class="platform-metric">
+                        <span class="metric-label">Installs</span>
+                        <span class="metric-value">2,895 <span class="metric-change">↓72.30%</span></span>
+                    </div>
+                    <div class="platform-metric">
+                        <span class="metric-label">New Accounts</span>
+                        <span class="metric-value">2,356 <span class="metric-change">↓34.25%</span></span>
+                    </div>
+                    <div class="platform-metric">
+                        <span class="metric-label">CPA</span>
+                        <span class="metric-value">$17.43 <span class="metric-change">↓58%</span></span>
+                    </div>
+                </div>
+
+                <div class="platform-card">
+                    <div class="platform-name">Meta</div>
+                    <div class="platform-metric">
+                        <span class="metric-label">Spend</span>
+                        <span class="metric-value">$2,858 <span class="metric-change">↓86.76%</span></span>
+                    </div>
+                    <div class="platform-metric">
+                        <span class="metric-label">Installs</span>
+                        <span class="metric-value">84 <span class="metric-change">↓80.65%</span></span>
+                    </div>
+                    <div class="platform-metric">
+                        <span class="metric-label">New Accounts</span>
+                        <span class="metric-value">275 <span class="metric-change">↓28.57%</span></span>
+                    </div>
+                    <div class="platform-metric">
+                        <span class="metric-label">CPA</span>
+                        <span class="metric-value">$10.39 <span class="metric-change">↓81.47%</span></span>
+                    </div>
+                </div>
+
+                <div class="platform-card">
+                    <div class="platform-name">TikTok</div>
+                    <div class="platform-metric">
+                        <span class="metric-label">Spend</span>
+                        <span class="metric-value">$2,335 <span class="metric-change">↓87.44%</span></span>
+                    </div>
+                    <div class="platform-metric">
+                        <span class="metric-label">Installs</span>
+                        <span class="metric-value">222 <span class="metric-change">↓78.74%</span></span>
+                    </div>
+                    <div class="platform-metric">
+                        <span class="metric-label">New Accounts</span>
+                        <span class="metric-value">279 <span class="metric-change">↓39.35%</span></span>
+                    </div>
+                    <div class="platform-metric">
+                        <span class="metric-label">CPA</span>
+                        <span class="metric-value">$8.37 <span class="metric-change">↓79.30%</span></span>
+                    </div>
+                </div>
+
+                <div class="platform-card">
+                    <div class="platform-name">Apple Search Ads</div>
+                    <div class="platform-metric">
+                        <span class="metric-label">Spend</span>
+                        <span class="metric-value">$3,083 <span class="metric-change">↓74.36%</span></span>
+                    </div>
+                    <div class="platform-metric">
+                        <span class="metric-label">Installs</span>
+                        <span class="metric-value">585 <span class="metric-change">↓73.57%</span></span>
+                    </div>
+                    <div class="platform-metric">
+                        <span class="metric-label">New Accounts</span>
+                        <span class="metric-value">180 <span class="metric-change">↓51.09%</span></span>
+                    </div>
+                    <div class="platform-metric">
+                        <span class="metric-label">CPA</span>
+                        <span class="metric-value">$17.13 <span class="metric-change">↓47.58%</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h3>💡 Platform Insights</h3>
+                <ul class="insight-list">
+                    <li>The decrease across platforms was caused by <strong>budget changes implemented October 7th</strong></li>
+                    <li><strong>TikTok achieved the lowest CPA at $8.37</strong>, followed by Meta at $10.39</li>
+                    <li>Google drove the highest volume with 2,356 new accounts</li>
+                    <li>Liftoff was paused for October</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Account Activation -->
+        <div class="section">
+            <h2>✨ Account Activation</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-title">Active Accounts</div>
+                    <div class="stat-card-value">11.5%</div>
+                    <div class="stat-card-change">of Paid accounts activated</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-title">Average Transaction</div>
+                    <div class="stat-card-value">$50.80</div>
+                    <div class="stat-card-change">Paid accounts (vs $31.94 Traditional)</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px;">Top Account Activities</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Activity Type</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Card Activity</td>
+                        <td><strong>28.1%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Cash Load Activity</td>
+                        <td><strong>19.2%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>VMT Funding</td>
+                        <td><strong>17.3%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>IMT Activity</td>
+                        <td><strong>9.3%</strong></td>
+                    </tr>
+                    <tr>
+                        <td>P2P Funding</td>
+                        <td><strong>8.9%</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="insight-box">
+                <h3>💡 Activation Insights</h3>
+                <ul class="insight-list">
+                    <li>Paid ads activated over <strong>12% of the accounts</strong> it brought in</li>
+                    <li>Paid accounts show <strong>59% higher average transaction value</strong> compared to traditional accounts</li>
+                    <li>Card activity dominates at 28.1% of all transactions</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Marketing 360 -->
+        <div class="section">
+            <h2>🌐 Marketing 360 Overview</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-title">Total Installs</div>
+                    <div class="stat-card-value">7,692</div>
+                    <div class="stat-card-change">vs 24,955 week prior</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-title">Total New Accounts</div>
+                    <div class="stat-card-value">5,008</div>
+                    <div class="stat-card-change">vs 7,603 week prior</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-title">Install-Account Rate</div>
+                    <div class="stat-card-value">65.11%</div>
+                    <div class="stat-card-change">↑ from 30.47% week prior</div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h3>💡 Marketing 360 Insights</h3>
+                <ul class="insight-list">
+                    <li>Paid ads brought in <strong>62% of new accounts</strong> this week</li>
+                    <li>Install-to-account conversion rate more than doubled, showing improved quality</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Boots on the Ground -->
+        <div class="section">
+            <h2>👥 Boots on the Ground Performance</h2>
+            
+            <div class="two-column">
+                <div>
+                    <h3>Week Prior (9/29-10/5)</h3>
+                    <div class="stats-grid" style="grid-template-columns: 1fr;">
+                        <div class="stat-card">
+                            <div class="stat-card-title">Verified Accounts</div>
+                            <div class="stat-card-value">1,499</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-title">Active Accounts</div>
+                            <div class="stat-card-value">837</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-title">Activation Rate</div>
+                            <div class="stat-card-value">56%</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-title">Close Rate</div>
+                            <div class="stat-card-value">6.3%</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3>Last Week (10/6-10/12)</h3>
+                    <div class="stats-grid" style="grid-template-columns: 1fr;">
+                        <div class="stat-card">
+                            <div class="stat-card-title">Verified Accounts</div>
+                            <div class="stat-card-value">1,257</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-title">Active Accounts</div>
+                            <div class="stat-card-value">715</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-title">Activation Rate</div>
+                            <div class="stat-card-value">57%</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-card-title">Close Rate</div>
+                            <div class="stat-card-value">4.0%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Demographics -->
+        <div class="section">
+            <h2>🌎 New Accounts Demographics</h2>
+            
+            <h3>Top States (10/6-10/12)</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>State</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Texas</strong></td>
+                        <td>31.57%</td>
+                    </tr>
+                    <tr>
+                        <td>California</td>
+                        <td>7.97%</td>
+                    </tr>
+                    <tr>
+                        <td>North Carolina</td>
+                        <td>6.52%</td>
+                    </tr>
+                    <tr>
+                        <td>New York</td>
+                        <td>4.15%</td>
+                    </tr>
+                    <tr>
+                        <td>Other</td>
+                        <td>43.83%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Top Nationalities</h3>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Nationality</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>United States</strong></td>
+                        <td>63.15%</td>
+                    </tr>
+                    <tr>
+                        <td>Mexico</td>
+                        <td>10.14%</td>
+                    </tr>
+                    <tr>
+                        <td>Venezuela</td>
+                        <td>7.45%</td>
+                    </tr>
+                    <tr>
+                        <td>Honduras</td>
+                        <td>5.71%</td>
+                    </tr>
+                    <tr>
+                        <td>Nicaragua</td>
+                        <td>5.47%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="insight-box">
+                <h3>💡 Demographic Insights</h3>
+                <ul class="insight-list">
+                    <li>The largest inferred nationalities were <strong>Mexico (33.17%)</strong>, <strong>Venezuela (26.69%)</strong>, and <strong>Honduras (15.81%)</strong></li>
+                    <li>Texas dominates with nearly a third of all new accounts</li>
+                    <li>Strong presence in traditional remittance corridors</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- MiBambu Colombia -->
+        <div class="section">
+            <h2>🇨🇴 MiBambu Colombia Campaign</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-card-title">Weekly Spend</div>
+                    <div class="stat-card-value">$1,048</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-title">Leads Generated</div>
+                    <div class="stat-card-value">2,159</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-title">Cost Per Lead</div>
+                    <div class="stat-card-value">$0.49</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-card-title">Total Leads to Date</div>
+                    <div class="stat-card-value">21,705</div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h3>💡 Colombia Campaign Updates</h3>
+                <ul class="insight-list">
+                    <li><strong>Planned Launch:</strong> TBD</li>
+                    <li>CRM launched the Journey between October 1-2</li>
+                    <li>Met with Social Media - Customer Care to align responses about MiBambu</li>
+                    <li>Credit line for Colombia was approved</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="text-align: center; padding: 40px; color: #5a7a8f;">
+            <p style="font-size: 18px; margin-bottom: 20px;">🙂</p>
+            <p style="font-size: 14px;">MyBambu Paid Ads Team | October 2025</p>
+            <p style="font-size: 14px; margin-top: 10px;"><strong>Mafe Varon • Mili Paul • Matthew Lopez</strong></p>
+        </div>
+    </div>
+</body>
+</html>
